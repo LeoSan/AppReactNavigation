@@ -31,16 +31,43 @@ import Nosotros from './views/Nosotros';
    return (
     <NavigationContainer>
         <Stack.Navigator
-          initialRouteName='Nosotros'
+          screenOptions={{
+            headerTittleAling:'center',
+            headerStyle:{
+              backgroundColor:'#F45EEE'
+            },
+            headerTintColor:'#FFF',
+            headerTittleStyle:{
+              fontWeight:'bold'
+            } 
+
+          }}
         >
             <Stack.Screen 
                 name="Inicio" 
                 component={Inicio}  
+                options={{
+                  title:"Componente Inicio",
+                  headerTittleAling:'center',
+                  headerStyle:{
+                    backgroundColor:'#F4511E'
+                  },
+                  headerTintColor:'#FFF',
+                  headerTittleStyle:{
+                    fontWeight:'bold'
+                  } 
+
+                }}  
               />
-            <Stack.Screen 
+            
+              <Stack.Screen 
                 name="Nosotros" 
                 component={Nosotros}  
+                options={ ( {route} )=>({
+                  title: route.params.clienteId
+                })  } 
               />
+
         </Stack.Navigator>
     </NavigationContainer>
    );
